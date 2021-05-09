@@ -3,6 +3,7 @@ const app = express();
 const authRoute = require('./routes/auth');
 const postRoute = require('./routes/posts');
 const mongoose = require('mongoose');
+const profileRoute = require('./routes/profileService');
 const dotenv = require('dotenv');
 const cros = require('cors');
 
@@ -22,6 +23,7 @@ app.use(cros());
 app.use(express.json());
 app.use('/api/user', authRoute);
 app.use('/api', postRoute);
+app.use('/api', profileRoute);
 
 
 app.listen(process.env.SERVER_PORT, () => console.log('SERVER RUNNING... PORT ['+process.env.SERVER_PORT+']'));
